@@ -2,6 +2,7 @@
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
+add_action( 'after_setup_theme', 'main_menu' );
 
 function style_theme(){
     // отменяем зарегистрированный jQuery
@@ -27,4 +28,9 @@ function scripts_theme(){
     wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider.js' );
     wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/assets/js/doubletaptogo.js' );
     wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js' );
+}
+
+function main_menu(){
+    register_nav_menu( 'top', 'Меню в шапке' );
+    register_nav_menu( 'footer', 'Меню в подвале' );
 }
