@@ -1,8 +1,16 @@
 <?php
 
+include 'inc/gutenberg-blocks/class-block-person.php';
+new Sparrow\Blocks\PersonBlock\PersonBlock();
+
+include 'template-parts/options/class-options.php';
+new Sparrow\Options\MyOptions\Options();
+
+
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
 add_action( 'after_setup_theme', 'main_menu' );
+
 
 function style_theme(){
     // отменяем зарегистрированный jQuery
@@ -34,3 +42,5 @@ function main_menu(){
     register_nav_menu( 'top', 'Меню в шапке' );
     register_nav_menu( 'footer', 'Меню в подвале' );
 }
+
+
